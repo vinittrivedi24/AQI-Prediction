@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 
 # Load dataset
-df = pd.read_csv("data.csv")
+df = pd.read_csv("city_day.csv")
 
 df.columns = df.columns.str.strip()
 df = df[['PM2.5', 'PM10', 'NO2', 'CO', 'SO2', 'AQI']]
