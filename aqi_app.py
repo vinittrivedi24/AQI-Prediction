@@ -1,27 +1,20 @@
 import streamlit as st
 import numpy as np
-import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split
 
-# Load dataset
-df = pd.read_csv("city_day.csv")
+X = [
+    [50, 100, 30, 0.5, 10],
+    [30, 60, 20, 0.3, 5],
+    [100, 150, 60, 1.0, 20],
+    [200, 300, 80, 2.0, 30]
+]
 
-df.columns = df.columns.str.strip()
-df = df[['PM2.5', 'PM10', 'NO2', 'CO', 'SO2', 'AQI']]
-df = df.dropna()
+y = [80, 40, 150, 250]
 
-X = df[['PM2.5', 'PM10', 'NO2', 'CO', 'SO2']]
-y = df['AQI']
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-
-# Train model INSIDE app (no pickle needed)
 model = RandomForestRegressor()
-model.fit(X_train, y_train)
+model.fit(X, y)
 
-# UI
-st.title("🌫️ AQI Prediction App")
+st.title("🌫️ AQI Prediction App (No Dataset Needed)")
 
 pm25 = st.slider("PM2.5", 0, 500, 50)
 pm10 = st.slider("PM10", 0, 500, 80)
