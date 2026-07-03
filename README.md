@@ -9,4 +9,4 @@
 streamlit run aqi_app.py
 
 ## 🌐 Live Demo
-https://your-streamlit-link.streamlit.app
+https://aqi-prediction-x9hgajwb8syrla5kyrzrtj.streamlit.app/
